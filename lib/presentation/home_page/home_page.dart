@@ -46,10 +46,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return BlocProvider(
-      create: (context) => BarometerCubit(
-          barometerRepository: context.read<BarometerRepository>())
-        ..listenUpdates(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SettingsCubit>(
+          create: (BuildContext context) => SettingsCubit(),
+        ),
+        BlocProvider<BarometerCubit>(
+            create: (context) => BarometerCubit(
+                barometerRepository: context.read<BarometerRepository>())
+              ..listenUpdates())
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Voluptuaria'),
