@@ -12,6 +12,12 @@ const double R = 8.3144598; // Universal gas constant in J/(mol·K)
 /// Convert the given temperature in Celsius to Kelvin.
 double celsiusToKelvin(double celsius) => celsius + 273.15;
 
+double celsiusToFahrenheit(double celsius) => (celsius * 9 / 5) + 32;
+
+double metersToFeet(double meter) => meter / 0.3048;
+
+double hectopascalToInchesMercury(double hpa) => hpa / 33.864;
+
 /// Calculate the altitude in meters freom the given pressure in hecto Pascals.
 double calculateElevation({
   required double pressure,
