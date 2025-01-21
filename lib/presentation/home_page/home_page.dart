@@ -61,7 +61,8 @@ class _HomePageState extends State<HomePage> {
                       child: BlocProvider(
                           create: (context) => SettingsCubit(
                               settingsRepository:
-                                  context.read<SettingsRepository>()),
+                                  context.read<SettingsRepository>())
+                            ..loadSettings(),
                           child: const SettingsPage()),
                     ),
                   ),
